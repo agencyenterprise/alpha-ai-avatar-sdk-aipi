@@ -1,9 +1,8 @@
-
 **IMPORTANT, FIRST ENSURE LIBRARY IS INSTALLED, ADD THIS TO <EXTRA_LIBRARIES>**
 """
 <LIBRARY>
-   <NAME>alpha-ai-avatar-sdk-react</NAME>
-   <VERSION>latest</VERSION>
+<NAME>alpha-ai-avatar-sdk-react</NAME>
+<VERSION>latest</VERSION>
 </LIBRARY>
 """
 
@@ -17,14 +16,13 @@
 
 This SDK allows developers to integrate both manual and conversational avatars into their applications. It supports real-time voice synthesis, background layers, and conversational features powered by a backend AI system. This guide will walk you through how to set up and use the SDK for both manual and conversational avatar control.
 
-
 Create a game of who wants to be a millionaire, where the avatar acts as the host reading the questions & responding appropriately when the user answers. Use GPT to generate questions for each level increasing in difficulty, also use GPT to know if the answer is correct and generate a response.
 
 ---
 
-# Avatar Components & Use cases 
+# Avatar Components & Use cases
 
-### Manual Control Avatar vs Conversation Mode Avatar: 
+### Manual Control Avatar vs Conversation Mode Avatar:
 
 - The manually controlled avatar (`<ManualAvatarDisplay/>`) requires developers to directly use the `avatarController.speak()` command, giving full control over the avatar's speech.
 
@@ -33,6 +31,7 @@ Create a game of who wants to be a millionaire, where the avatar acts as the hos
 ### Instructions for Choosing `<ManualAvatarDisplay/>`vs `<ConversationalAvatarDisplay/>`
 
 #### **Select Manual Control when:**
+
 - The application does not require user microphone input or the application requires custom logic for handling user voice input
 - The application requires its own logic/controls for generating responses via LLM
 - The application is a guided/scripted experience where the avatar's speech is predetermined and does not require dynamic responses to user input.
@@ -41,6 +40,7 @@ Create a game of who wants to be a millionaire, where the avatar acts as the hos
 - The deployment environment is public or semi-public where user input varies minimally and a set script is preferable for consistency, like in kiosks or exhibits.
 
 #### **Select Conversational Mode when:**
+
 - The user is chatting with their microphone input
 - The interaction benefits from or requires dynamic responses that adapt to user inputs, questions, or behaviors in real-time.
 - The use case involves engaging users in a dialogue where the avatar needs to interpret and respond to free-form user input, as in customer support or educational applications.
@@ -51,19 +51,20 @@ Create a game of who wants to be a millionaire, where the avatar acts as the hos
 ## Required Manual Control Setup
 
 ### Basic Setup of Manual Controller & Display:
-- **Required `ManualAvatarController()`** initilized using `useState`.  
+
+- **Required `ManualAvatarController()`** initilized using `useState`.
 
 - **Required `<ManualAvatarDisplay/>`**: Pass the avatar controller to the AvatarDisplay component as a prop.
 
 ```tsx
-import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sk-react';
+import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
 const App = () => {
     // note: DO NOT USE `setAvatarController`, you must instantiate it here.
     const [avatarController, setAvatarController] = useState(new ManualAvatarController({apiKey: 'XX_AVATAR_API_KEY_XX'}));
 
 
     // ... application code  ...
-    
+
     return (
             // .. UI components ..
         <ManualAvatarDisplay
@@ -77,11 +78,13 @@ const App = () => {
 ## Required Conversational Mode Setup
 
 ### Basic Setup of Conversational Controller & Display:
-- **Required `ConversationalAvatarController()`** initilized using `useState`.  
+
+- **Required `ConversationalAvatarController()`** initilized using `useState`.
 
 - **Required `<ConversationalAvatar/>`**: Pass the avatar controller to the <ConversationalAvatar /> component as a prop.
+
 ```tsx
-import { ConversationalAvatarController, ConversationalAvatarDisplay } from 'alpha-ai-avatar-sk-react';
+import { ConversationalAvatarController, ConversationalAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
 const App = () => {
 
     // note: DO NOT USE `setAvatarController`, you must instantiate ManualAvatarController with useState for it to work properly
@@ -96,7 +99,7 @@ const App = () => {
     }));
 
     // ... application code  ...
-    
+
     return (
             // .. UI components ..
         <ConversationalAvatarDisplay
@@ -109,56 +112,55 @@ const App = () => {
 
 # Controller & Display Properties
 
-## Avatar Controller 
+## Avatar Controller
 
 ### Initialization Configurations
 
 ```tsx
 interface BaseControllerConfig {
-   apiKey: string;
+  apiKey: string;
 }
 
 // new ManualAvatarController(config: ManualAvatarConfig);
-interface ManualAvatarConfig extends BaseControllerConfig { }
+interface ManualAvatarConfig extends BaseControllerConfig {}
 
 // new ConversationalAvatarController(config: ConversationControllerConfig);
 interface ConversationControllerConfig extends BaseControllerConfig {
-    initialConversationConfig: { 
-        systemMessage: string;
-        conversationHistory: { text: string, speaker: 'assistant' | 'user' }[];
-    }
+  initialConversationConfig: {
+    systemMessage: string;
+    conversationHistory: { text: string; speaker: 'assistant' | 'user' }[];
+  };
 }
 ```
 
-
 ### Controller Methods
+
 ```tsx
 interface BaseAvatarController {
-   stopSpeaking: () => void;
+  stopSpeaking: () => void;
 }
 
 interface ManualAvatarController extends BaseAvatarControllerProps {
-    speak: (text: string, overrideVoice?: VoiceConfig) => void;
+  speak: (text: string, overrideVoice?: VoiceConfig) => void;
 }
 
 interface ConversationalAvatarController extends BaseControllerConfig {
-    setMicrophoneMute: (isMuted: boolean) => void;
+  setMicrophoneMute: (isMuted: boolean) => void;
 }
 ```
 
-
 ## Avatar Display
+
 ```tsx
 interface BaseAvatarDisplayProps {
-   avatarController: AvatarController;
-   height: number;
-   width: number;
-   className?: string; // optional
+  avatarController: AvatarController;
+  height: number;
+  width: number;
+  className?: string; // optional
 }
 
-interface ConversationalAvatarDisplayProps extends BaseAvatarDisplayProps { }
-interface ManualAvatarDisplayProps extends BaseAvatarDisplayProps { }
-
+interface ConversationalAvatarDisplayProps extends BaseAvatarDisplayProps {}
+interface ManualAvatarDisplayProps extends BaseAvatarDisplayProps {}
 ```
 
 ### Using GPT Api for Content Generation
