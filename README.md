@@ -1,8 +1,6 @@
 # Getting Started
 
-[![npm version](https://badge.fury.io/js/alpha-ai-avatar-sdk-react.svg)](https://badge.fury.io/js/alpha-ai-avatar-sdk-react)
-
-Hello! 👋 This tutorial will help you get started with the **Avatar SDK for React**.
+Hello! 👋 This tutorial will help you get started with the **Avatar SDK for AIPI**.
 
 ## Table of Contents
 
@@ -24,7 +22,7 @@ Hello! 👋 This tutorial will help you get started with the **Avatar SDK for Re
 To install the package, run the following command:
 
 ```bash
-npm i alpha-ai-avatar-sdk-react
+npm i alpha-ai-avatar-sdk-aipi
 ```
 
 ## Usage
