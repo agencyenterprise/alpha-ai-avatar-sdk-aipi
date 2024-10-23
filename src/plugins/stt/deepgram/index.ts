@@ -1,0 +1,1 @@
+export { useDeepgramSpeechRecognition } from './useDeepgramSpeechRecognition';
