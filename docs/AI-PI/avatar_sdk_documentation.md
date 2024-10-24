@@ -189,7 +189,7 @@ const getGptApiResponse = async (promptRules: string, promptRequest: string) => 
 ### Using Chat to display messages from conversational mode
 
 ```tsx
-import { Chat } from 'alpha-ai-avatar-sdk-react';
+import { Chat } from 'alpha-ai-avatar-sdk-aipi';
 
 <Chat avatarController={avatarController} avatarDisplayName="XX_AVATAR_NAME_XX" userDisplayName="You" />
 ```
