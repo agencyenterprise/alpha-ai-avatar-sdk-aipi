@@ -63,6 +63,14 @@ export class BaseAvatarController {
     });
   }
 
+  async getAvatars() {
+    return this.avatarClient.getAvatars();
+  }
+
+  switchAvatar(avatarId: number) {
+    return this.avatarClient.switchAvatar(avatarId);
+  }
+
   disconnect() {
     this.avatarClient.disconnect();
   }
