@@ -71,6 +71,15 @@ export class BaseAvatarController {
     return this.avatarClient.switchAvatar(avatarId);
   }
 
+  setConversationHistory(
+    messages: {
+      role: string;
+      content: string;
+    }[],
+  ) {
+    this.avatarClient.setMessagesHistory(messages);
+  }
+
   disconnect() {
     this.avatarClient.disconnect();
   }

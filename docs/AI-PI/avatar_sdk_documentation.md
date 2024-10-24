@@ -26,7 +26,7 @@ Create a game of who wants to be a millionaire, where the avatar acts as the hos
 
 - The manually controlled avatar (`<ManualAvatarDisplay/>`) requires developers to directly use the `avatarController.speak()` command, giving full control over the avatar's speech.
 
-- The conversational avatar (`<ConversationalAvatarDisplay />`) interacts with the AvatarService backend LLM. Developers can adjust the LLM that powers the avatar's speech through the conversation state via .setSystemMessage() and .setConversationHistory() but have no direct control over the avatar's speech output.
+- The conversational avatar (`<ConversationalAvatarDisplay />`) interacts with the AvatarService backend LLM. Developers can adjust the LLM that powers the avatar's speech through the conversation state via .setConversationHistory() but have no direct control over the avatar's speech output.
 
 ### Instructions for Choosing `<ManualAvatarDisplay/>`vs `<ConversationalAvatarDisplay/>`
 
@@ -267,3 +267,4 @@ avatarController.switchAvatar(2);
 
 - Always ensure the avatar ID exists before attempting to switch to it
 - Invalid avatar IDs will result in an error
+- Don't call the switchAvatar from a useEffect, only call it when you need to change the avatar.
