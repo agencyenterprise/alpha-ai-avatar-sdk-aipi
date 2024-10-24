@@ -29,7 +29,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.4",
     "@mui/material": "^6.1.4",
-    "alpha-ai-avatar-sdk-react": "file:../../dist/",
+    "alpha-ai-avatar-sdk-aipi": "file:../../dist/",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"

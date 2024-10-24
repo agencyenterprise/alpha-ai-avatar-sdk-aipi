@@ -1,7 +1,8 @@
 import {
   ConversationalAvatarController,
   ConversationalAvatarDisplay,
-} from 'alpha-ai-avatar-sdk-react';
+  Chat,
+} from 'alpha-ai-avatar-sdk-aipi';
 
 const avatarController = new ConversationalAvatarController({
   apiKey: 'API_KEY',
@@ -25,6 +26,7 @@ export function App() {
       }}>
       <p>conversational mode example</p>
       <ConversationalAvatarDisplay avatarController={avatarController} />
+      <Chat avatarController={avatarController} />
     </div>
   );
 }
