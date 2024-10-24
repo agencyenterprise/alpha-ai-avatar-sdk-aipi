@@ -52,4 +52,8 @@ export class ConversationalAvatarController extends BaseAvatarController {
   speak(text: string, overrideVoice?: SynthesizerOptions) {
     this.avatarClient.say(text, overrideVoice);
   }
+
+  sendTextResponse(text: string) {
+    this.avatarClient.sendConversationalMessage(text);
+  }
 }

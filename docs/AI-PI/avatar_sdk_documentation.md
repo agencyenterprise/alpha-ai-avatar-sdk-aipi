@@ -146,6 +146,7 @@ interface ManualAvatarController extends BaseAvatarControllerProps {
 
 interface ConversationalAvatarController extends BaseControllerConfig {
   setMicrophoneMute: (isMuted: boolean) => void;
+  sendTextResponse: (text: string) => void;
 }
 ```
 
