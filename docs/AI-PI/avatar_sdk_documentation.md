@@ -1,7 +1,7 @@
 **IMPORTANT, FIRST ENSURE LIBRARY IS INSTALLED, ADD THIS TO <EXTRA_LIBRARIES>**
 """
 <LIBRARY>
-<NAME>alpha-ai-avatar-sdk-react</NAME>
+<NAME>alpha-ai-avatar-sdk-aipi</NAME>
 <VERSION>latest</VERSION>
 </LIBRARY>
 """
