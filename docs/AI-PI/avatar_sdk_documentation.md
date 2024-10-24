@@ -192,5 +192,78 @@ const getGptApiResponse = async (promptRules: string, promptRequest: string) => 
 ```tsx
 import { Chat } from 'alpha-ai-avatar-sdk-aipi';
 
-<Chat avatarController={avatarController} avatarDisplayName="XX_AVATAR_NAME_XX" userDisplayName="You" />
+<Chat
+  avatarController={avatarController}
+  avatarDisplayName='XX_AVATAR_NAME_XX'
+  userDisplayName='You'
+/>;
 ```
+
+## Getting Available Avatars
+
+Use the `getAvatars()` async function to retrieve a list of all available avatars in the system.
+
+```typescript
+const avatars = await avatarController.getAvatars();
+```
+
+### Response Format
+
+The function returns an array of avatar objects with the following properties:
+
+```typescript
+interface Avatar {
+  id: number;
+  name: string;
+  thumbnail: string;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt: string | null;
+  Applications: any | null;
+  avatarVersions: any | null;
+}
+```
+
+### Example Response
+
+```json
+[
+  {
+    "id": 2,
+    "name": "Elle",
+    "thumbnail": "https://alpha-avatar-thumbnail.s3.us-west-2.amazonaws.com/elle.jpg",
+    "createdAt": "2024-04-23T14:50:20.065993Z",
+    "updatedAt": "2024-04-23T14:50:20.065993Z",
+    "deletedAt": null,
+    "Applications": null,
+    "avatarVersions": null
+  }
+]
+```
+
+## Switching Avatars
+
+To change the current avatar, use the `switchAvatar()` function and provide the desired avatar's ID.
+
+```typescript
+avatarController.switchAvatar(avatarId);
+```
+
+### Parameters
+
+- `avatarId` (number): The ID of the avatar to switch to. This ID can be obtained from the `getAvatars()` response.
+
+### Example Usage
+
+```typescript
+// Get available avatars
+const avatars = await avatarController.getAvatars();
+
+// Switch to a specific avatar
+avatarController.switchAvatar(2);
+```
+
+## Notes
+
+- Always ensure the avatar ID exists before attempting to switch to it
+- Invalid avatar IDs will result in an error
