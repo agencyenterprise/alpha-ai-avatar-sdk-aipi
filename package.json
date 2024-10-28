@@ -1,6 +1,6 @@
 {
   "name": "alpha-ai-avatar-sdk-aipi",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Alpha AI Avatar SDK (AIPI)",
   "main": "index.js",
   "module": "index.esm.js",
@@ -71,5 +71,8 @@
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-json": "^6.1.0"
   }
 }

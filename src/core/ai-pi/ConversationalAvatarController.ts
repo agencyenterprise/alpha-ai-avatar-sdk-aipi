@@ -1,8 +1,8 @@
 import { BaseAvatarController } from './BaseAvatarController';
-import { SynthesizerOptions } from 'alpha-ai-avatar-sdk-js';
+import { AvatarClientConfig, SynthesizerOptions } from 'alpha-ai-avatar-sdk-js';
 
 export class ConversationalAvatarController extends BaseAvatarController {
-  constructor(config: any) {
+  constructor(config: AvatarClientConfig) {
     super({
       ...config,
       conversational: true,
