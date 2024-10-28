@@ -1,9 +1,23 @@
 import { AvatarClient, AvatarClientConfig } from 'alpha-ai-avatar-sdk-js';
+import avatars from '../../assets/avatars.json';
 
 export class BaseAvatarController {
   public avatarClient: AvatarClient;
 
   constructor(config: AvatarClientConfig) {
+    if (!config.initialPrompt?.length && config.avatarId) {
+      const prompt = this.getAvatarPrompt(config.avatarId);
+
+      if (prompt) {
+        config.initialPrompt = [
+          {
+            role: 'system',
+            content: prompt,
+          },
+        ];
+      }
+    }
+
     this.avatarClient = new AvatarClient(config);
   }
 
@@ -68,7 +82,18 @@ export class BaseAvatarController {
   }
 
   switchAvatar(avatarId: number) {
-    return this.avatarClient.switchAvatar(avatarId);
+    const prompt = this.getAvatarPrompt(avatarId);
+
+    if (prompt) {
+      this.avatarClient.setMessagesHistory([
+        {
+          role: 'system',
+          content: prompt,
+        },
+      ]);
+    }
+
+    this.avatarClient.switchAvatar(avatarId);
   }
 
   setConversationHistory(
@@ -82,5 +107,9 @@ export class BaseAvatarController {
 
   disconnect() {
     this.avatarClient.disconnect();
+  }
+
+  getAvatarPrompt(avatarId: number) {
+    return avatars.find((avatar) => avatar.avatarId === avatarId)?.prompt;
   }
 }
