@@ -57,7 +57,7 @@ This SDK allows developers to integrate both manual and conversational avatars i
 import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
 const App = () => {
     // note: DO NOT USE `setAvatarController`, you must instantiate it here.
-    const [avatarController, setAvatarController] = useState(new ManualAvatarController({apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY}));
+    const [avatarController, setAvatarController] = useState(new ManualAvatarController({apiKey: "XX__YOUR_AVATAR_API_KEY__XX"}));
 
 
     // ... application code  ...
@@ -86,7 +86,7 @@ const App = () => {
 
     // note: DO NOT USE `setAvatarController`, you must instantiate ManualAvatarController with useState for it to work properly
     const [avatarController, setAvatarController] =  useState(new ConversationalAvatarController({
-        apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY,
+        apiKey: "XX__YOUR_AVATAR_API_KEY__XX",
         initialPrompt: [
             {
                 role: 'system',
@@ -173,9 +173,9 @@ import { Chat } from 'alpha-ai-avatar-sdk-aipi';
 />;
 ```
 
-## Get List of Available Avatars In Application
+## Get List of Available Avatar ID / Name / Thumbnail
 
-Use the `getAvatars()` async function to retrieve a list of all available avatars in the system.
+If the user wants to control which avatar they want to use, you can create a UI using a list of avatars by using the `getAvatars()` async function to retrieve a list of all available avatars in the system.
 
 ```typescript
 const avatars = await avatarController.getAvatars();
