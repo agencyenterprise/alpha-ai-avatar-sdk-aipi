@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import del from 'rollup-plugin-delete';
 import copy from 'rollup-plugin-copy';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import json from '@rollup/plugin-json';
 
 export default [
   {
@@ -25,6 +26,7 @@ export default [
       },
     ],
     plugins: [
+      json(),
       del({ targets: 'dist/*' }),
       peerDepsExternal(),
       resolve({
