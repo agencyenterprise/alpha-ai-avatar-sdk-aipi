@@ -192,6 +192,8 @@ export const AvatarVideoGenerator = ({ apiKey }: AvatarVideoGeneratorProps) => {
                 onChange={(e) => setText(e.target.value)}
                 className='w-full p-2 border rounded-md'
                 rows={4}
+                maxLength={300}
+                minLength={1}
                 placeholder='Enter the text for the avatar to speak...'
               />
             </div>
