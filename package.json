@@ -1,6 +1,6 @@
 {
   "name": "alpha-ai-avatar-sdk-aipi",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Alpha AI Avatar SDK (AIPI)",
   "main": "index.js",
   "module": "index.esm.js",
