@@ -12,7 +12,6 @@ create an app so I can have a conversation with franklin, use this api key: s76h
 ```tsx
 import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
 
-// REQUIRED TO HAVE SET FUNCTION.. [avatarController, setAvatarController] -- ERROR IF ONLY SINGULAR [avatarController] 
 const avatarController = new ManualAvatarController({
   apiKey: "<REPLACE WITH API KEY>",
   avatarId: 10, // required, choose the best one from the avatar list
@@ -64,9 +63,6 @@ avatarController.switchAvatar(newAvatarId);
 const avatars = await avatarController.getAvatars();
 // Returns: Array<{ id: number, name: string, thumbnail: string }>
 ```
-
-** IMPORTANT ** _Always_ set initial avatar in useState, not in other hooks.
-
 
 # Choose the best avatar for the application:
 ## Available Avatars
