@@ -45,7 +45,9 @@ export class BaseAvatarController {
       console.error('Error playing audio:', error);
     }
 
-    await this.avatarClient.connect();
+    await this.avatarClient.connect(undefined, {
+      adaptiveStream: false,
+    });
 
     if (!canAutoPlay) {
       this.waitUserGestureToPlayAudio(audioElement);
