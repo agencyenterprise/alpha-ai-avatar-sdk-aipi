@@ -1,4 +1,10 @@
-# Avatar SDK Quick Reference
+**REQUIRED**
+- React implementation must only functional React component architecture without useEffect hooks
+- Using the hook `useEffect` is FORBIDDEN, instead, require user input to set up state
+- Only use useState for state management
+**REQUIRED**
+
+# SDK Reference:
 
 ## Two Modes
 1. **Manual Mode**: Direct control via `avatarController.speak()`
@@ -72,3 +78,69 @@ const avatars = await avatarController.getAvatars();
 ```
 
 ** IMPORTANT ** _Always_ set initial avatar in useState, not in other hooks.
+
+
+# Choose the best avatar for the application:
+## Available Avatars
+"id", "avatar name"
+8,"André-Marie Ampère"
+9,"Nicolaus Copernicus"
+10,"Albert Einstein"
+11,"Susan B. Anthony"
+12,"Benjamin Franklin"
+14,"Thomas Jefferson"
+15,"Johannes Kepler"
+16,"Woodrow Wilson"
+17,"Galileo Galilei"
+18,"Michael Faraday"
+19,"Niels Bohr"
+23,"Genghis Khan"
+24,"Socrates"
+25,"Cleopatra"
+26,"Julius Caesar"
+27,"Louis Pasteur"
+28,"Martin Luther"
+29,"Queen Elizabeth I"
+30,"William Shakespeare"
+31,"Confucius"
+32,"Charles Darwin"
+33,"Nikola Tesla"
+34,"Mahatma Gandhi"
+35,"Mother Teresa"
+36,"Martin Luther King Jr"
+37,"Alan Turing"
+38,"Muhammad Ali"
+39,"Marie Curie"
+40,"Ernest Hemingway"
+41,"Isaac Newton"
+42,"Jane Austen"
+43,"Maya Angelou"
+44,"Franklin D Roosevelt"
+45,"Alexander Hamilton"
+46,"Buddha"
+47,"King George III"
+48,"Oppenheimer"
+49,"Henry Ford"
+50,"Rockefeller"
+51,"Abraham Lincoln"
+52,"Theodore Roosevelt"
+53,"John F Kennedy"
+54,"Leonardo da Vinci"
+55,"Alexander The Great"
+56,"Mark Twain"
+57,"George Washington"
+58,"Nelson Mandela"
+59,"Andrew Carnegie"
+60,"Al Capone"
+61,"Walt Disney"
+62,"Alexander Graham Bell"
+63,"Aristotle"
+64,"Charles Dickens"
+65,"Christopher Columbus"
+66,"Fidel Castro"
+67,"Galileo Galilei"
+68,"Marco Polo"
+69,"Marilyn Monroe"
+70,"Michelangelo"
+71,"Napoleon Bonaparte"
+72,"Winston Churchill"
