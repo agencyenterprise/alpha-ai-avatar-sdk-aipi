@@ -40,7 +40,9 @@ export class ConversationalAvatarController extends BaseAvatarController {
       },
       audioElement,
     );
-    await this.avatarClient.connect();
+    await this.avatarClient.connect(undefined, {
+      adaptiveStream: false,
+    });
     return new Promise((resolve) =>
       setTimeout(() => {
         this.avatarClient.enableMicrophone();
