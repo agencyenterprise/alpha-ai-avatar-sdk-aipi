@@ -1,3 +1,5 @@
+create an app so I can have a conversation with franklin, use this api key: s76hu0jzWThfnscn
+
 **REQUIRED**
 - React implementation must only functional React component architecture without useEffect hooks
 - Using the hook `useEffect` is FORBIDDEN, instead, require user input to set up state
@@ -7,12 +9,12 @@
 # SDK Reference:
 
 ## Two Modes
-1. **Manual Mode**: Direct control via `avatarController.speak()`
-2. **Conversational Mode**: AI-powered responses via backend LLM
+1. **Manual Mode**: Direct control via `avatarController.speak()` 
+2. **Conversational Mode**: AI-powered responses via backend LLM. DOES NOT ALLOW MANUAL CONTROL
 
 ## When to Use Each
 - **Manual**: Scripted interactions, no mic input needed
-- **Conversational**: Real-time chat with mic input
+- **Conversational**: Real-time chat with mic input (MIC IS AUTOMATICALLY ENGAGED AND CONNECTED IN SDK)
 
 ## Setup
 
@@ -20,7 +22,7 @@
 ```tsx
 import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
 const [avatarController, setAvatarController] = useState(new ManualAvatarController({
-  apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY,
+  apiKey: "<REPLACE WITH API KEY>",
   avatarId: 10, // required, choose the best one from the avatar list
 }));
 
@@ -33,7 +35,7 @@ import { ConversationalAvatarController, ConversationalAvatarDisplay } from 'alp
 
 const avatarPrompt = '<PUT PROMPT HERE FOR AVATAR PERSANLITY/BEHAVIOR/CHAT GUIDELINES>'
 const [avatarController, setAvatarController] = useState(new ConversationalAvatarController({
-  apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY,
+  apiKey: "<REPLACE WITH API KEY>",
   avatarId: 10, // required, choose the best one from the avatar list
   initialPrompt: [{role: 'system', content: avatarPrompt }]
 }));
