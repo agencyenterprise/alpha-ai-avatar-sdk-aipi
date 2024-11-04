@@ -46,12 +46,12 @@ return <ConversationalAvatarDisplay avatarController={avatarController} />;
 ## Core Methods
 
 ### Manual Controller
-- `speak(text: string)`
-- `stopSpeaking()`
+- `avatarController.speak(text: string)`
+- `avatarController.stopSpeaking()`
 
 ### Conversational Controller
-- `setMicrophoneMute(isMuted: boolean)`
-- `stopSpeaking()`
+- `avatarController.setMicrophoneMute(isMuted: boolean)`
+- `avatarController.stopSpeaking()`
 
 ## Display Props
 ```tsx
@@ -61,15 +61,6 @@ return <ConversationalAvatarDisplay avatarController={avatarController} />;
   width: number;
   className?: string;
 }
-```
-
-## Chat Display
-```tsx
-<Chat
-  avatarController={avatarController}
-  avatarDisplayName="Albert Einstein"
-  userDisplayName="You"
-/>
 ```
 
 ### Changing Avatar On The Fly
