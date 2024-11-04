@@ -170,3 +170,4 @@ const avatars = await avatarController.getAvatars();
 101, "Julius Caesar"
 102, "Queen Elizabeth I"
 103, "Patrick Mahomes"
+105, "Andy"
