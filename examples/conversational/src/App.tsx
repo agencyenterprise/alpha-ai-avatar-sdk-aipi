@@ -7,13 +7,7 @@ import {
 export function App() {
   const conversationalontroller = new ConversationalAvatarController({
     apiKey: 'API_KEY',
-    avatarId: 14,
-    initialPrompt: [
-      {
-        role: 'system',
-        content: 'Hello, how can I help you today?',
-      },
-    ],
+    avatarId: 10, // Albert Einstein
   });
 
   return (

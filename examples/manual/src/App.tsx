@@ -6,7 +6,7 @@ import {
 export function App() {
   const manualController = new ManualAvatarController({
     apiKey: 'API_KEY',
-    avatarId: 14,
+    avatarId: 10,
   });
 
   return (
