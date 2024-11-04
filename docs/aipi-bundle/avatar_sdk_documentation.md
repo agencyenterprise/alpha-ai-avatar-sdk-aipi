@@ -1,5 +1,3 @@
-create an app so I can have a conversation with franklin, use this api key: s76hu0jzWThfnscn
-
 **REQUIRED**
 - React implementation must only functional React component architecture without useEffect hooks
 - Using the hook `useEffect` is FORBIDDEN, instead, require user input to set up state
