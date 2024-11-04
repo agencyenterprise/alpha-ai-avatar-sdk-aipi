@@ -18,7 +18,8 @@
 
 ### Manual Mode
 ```tsx
-const [avatarController] = useState(new ManualAvatarController({
+import { ManualAvatarController, ManualAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
+const [avatarController, setAvatarController] = useState(new ManualAvatarController({
   apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY,
   avatarId: 10, // required, choose the best one from the avatar list
 }));
@@ -28,8 +29,10 @@ return <ManualAvatarDisplay avatarController={avatarController} />;
 
 ### Conversational Mode
 ```tsx
+import { ConversationalAvatarController, ConversationalAvatarDisplay } from 'alpha-ai-avatar-sdk-aipi';
+
 const avatarPrompt = '<PUT PROMPT HERE FOR AVATAR PERSANLITY/BEHAVIOR/CHAT GUIDELINES>'
-const [avatarController] = useState(new ConversationalAvatarController({
+const [avatarController, setAvatarController] = useState(new ConversationalAvatarController({
   apiKey: process.env.REACT_APP_ALPHA_AVATAR_API_KEY,
   avatarId: 10, // required, choose the best one from the avatar list
   initialPrompt: [{role: 'system', content: avatarPrompt }]
