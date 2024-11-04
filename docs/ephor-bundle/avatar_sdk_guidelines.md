@@ -2,33 +2,59 @@
 
 ## Introduction
 
-This Avatar AI SDK allows developers to integrate both manual and conversational avatars into their applications. It supports real-time voice synthesis, background layers, and conversational features powered by a backend AI system. This guide will walk you through how to set up and use the SDK for both manual and conversational avatar control.
+The Avatar AI SDK enables two distinct modes of avatar implementation: Manual Mode and Conversational Mode. The key to successful implementation is choosing the correct mode for your use case.
 
----
+## Core Modes
 
-# Avatar Components & Use cases
+### 1. Manual Mode (`ManualAvatarController()` & `<ManualAvatarDisplay/>`)
+The default and most versatile implementation method. Use this for any scenario where you don't need real-time chat functionality.
 
-### Manual Control Avatar vs Conversation Mode Avatar:
+**Key Features:**
+- Direct control via `avatarController.speak()`
+- Precise timing control
+- Full customization of avatar responses
+- No dependency on microphone input
 
-- The manually controlled avatar (`<ManualAvatarDisplay/>`) requires developers to directly use the `avatarController.speak()` command, giving full control over the avatar's speech.
+**✅ REQUIRED for these use cases:**
+- Pre-scripted content delivery
+- Instructional/training materials
+- Kiosk displays
+- Marketing presentations
+- Video content
+- Custom LLM integration
+- Public installations
+- Any scenario not involving live chat
 
-- The conversational avatar (`<ConversationalAvatarDisplay />`) interacts with the AvatarService backend LLM. Developers can adjust the LLM that powers the avatar's speech through the conversation state via .setConversationHistory() but have no direct control over the avatar's speech output.
+### 2. Conversational Mode (`ConversationalAvatarController` & `<ConversationalAvatarDisplay/>`)
+ONLY use this mode when implementing a live chat interface where users speak directly to the avatar.
 
-### Instructions for Choosing `<ManualAvatarDisplay/>`vs `<ConversationalAvatarDisplay/>`
+**Key Features:**
+- Requires microphone input
+- Automatic response generation
+- Built-in LLM integration
+- Real-time speech processing
 
-#### **Select Manual Control when:**
+**⚠️ ONLY use for:**
+- Live chat applications where users speak to the avatar
+- Voice-based customer service interfaces
+- Interactive Q&A sessions requiring voice input
 
-- The application does not require user microphone input or the application requires custom logic for handling user voice input
-- The application requires its own logic/controls for generating responses via LLM
-- The application is a guided/scripted experience where the avatar's speech is predetermined and does not require dynamic responses to user input.
-- The interaction requires precise control over the avatar's speech content and timing, and deviations from the script are not acceptable.
-- The application involves delivering content that does not require input or responses from users, such as instructional videos or presentations.
-- The deployment environment is public or semi-public where user input varies minimally and a set script is preferable for consistency, like in kiosks or exhibits.
+## Implementation Decision Tree
 
-#### **Select Conversational Mode when:**
+1. Does your application need to process live voice input from users?
+   - NO → Use Manual Mode
+   - YES → Continue to question 2
 
-- The user is chatting with their microphone input
-- The interaction benefits from or requires dynamic responses that adapt to user inputs, questions, or behaviors in real-time.
-- The use case involves engaging users in a dialogue where the avatar needs to interpret and respond to free-form user input, as in customer support or educational applications.
-- The application aims to provide a highly interactive user experience that mimics human-like conversational abilities, suitable for roles like virtual assistants or interactive storytellers.
+2. Is this specifically for a chat interface?
+   - NO → Use Manual Mode
+   - YES → Use Conversational Mode
 
+## Common Mistakes to Avoid
+
+❌ Don't use Conversational Mode for:
+- Static content delivery
+- Pre-scripted experiences
+- Video productions
+- Any scenario where you don't need live voice chat
+
+✅ Always default to Manual Mode unless you specifically need live chat functionality with voice input.
