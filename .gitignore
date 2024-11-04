@@ -2,7 +2,3 @@ node_modules
 dist
 
 yarn-error.log
-
-
-/docs/ephor-bundle/combined_output.txt
-/docs/ephor-bundle/xx.py
