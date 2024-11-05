@@ -36,22 +36,14 @@ export class BaseAvatarController {
       audioElement,
     );
 
-    let canAutoPlay = false;
-
-    try {
-      await audioElement.play();
-      canAutoPlay = true;
-    } catch (error) {
-      console.error('Error playing audio:', error);
-    }
-
     await this.avatarClient.connect(undefined, {
       adaptiveStream: false,
     });
 
-    if (!canAutoPlay) {
+    audioElement.play().catch((error) => {
+      console.error('Error playing audio:', error);
       this.waitUserGestureToPlayAudio(audioElement);
-    }
+    });
   }
 
   waitUserGestureToPlayAudio(audioElement: HTMLAudioElement) {
