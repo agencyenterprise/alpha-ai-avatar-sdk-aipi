@@ -83,6 +83,7 @@ const avatars = await avatarController.getAvatars();
 | 48  | Oppenheimer           | Physics                |
 | 62  | Alexander Graham Bell | Telecommunications     |
 | 92  | Thomas Edison         | Electrical Engineering |
+| 105 | Andy                  | Alpha School           |
 
 ### Political Leaders & Presidents
 
@@ -111,6 +112,7 @@ const avatars = await avatarController.getAvatars();
 | 97  | Lebron James      | Basketball      |
 | 100 | MrBeast           | Content Creator |
 | 103 | Patrick Mahomes   | Football        |
+| 106 | Derrick White     | Basketball      |
 
 ### Writers & Artists
 
